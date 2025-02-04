@@ -1,0 +1,19 @@
+.about-container {
+    max-width: 800px;
+    margin: 8px auto; /* Center the container horizontally */
+    padding: 80px 20px; /* Adjust padding for top and sides */
+  
+}
+
+h2 {
+    color: #000000;
+}
+
+h3 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.about-container p {
+    margin: 10px 0;
+}

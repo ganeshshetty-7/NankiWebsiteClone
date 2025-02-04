@@ -1,0 +1,119 @@
+/* General page styles */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #fff;
+  padding: 20px;  
+  margin-top: 60px;
+  
+}
+h1{
+  margin-right: 20px;
+}
+.signup-container {
+  background: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #ccc;  /* Add border */
+  border-radius: 10px;  /* Optional: rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);  /* Optional: subtle shadow */
+  display: flex;
+  flex-direction: column;  /* Stack form elements vertically */
+  align-items: center;  /* Horizontally center form elements */
+  justify-content: center;  /* Vertically center form elements */
+  margin-left: 35%;
+
+}
+
+/* Label styling */
+label {
+  font-size: 16px;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+/* Required field asterisk */
+label::after {
+  content: " *";
+  color: red;
+  font-weight: bold;
+}
+
+/* Making optional fields exclude asterisk */
+label.optional::after {
+  content: " (optional)";
+  color: gray;
+  font-weight: normal;
+}
+
+/* Input fields styling */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+/* Remove border on focus */
+input:focus, textarea:focus {
+  border-bottom: 2px solid #ff6600;
+}
+
+/* Adjust spacing for smaller elements */
+input::placeholder, textarea::placeholder {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Login link styling */
+a {
+  color: #cc6600;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.login-link {
+  color: #cc6600;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Button Styling */
+button {
+  padding: 12px 20px;
+  background-color: #6f4f28;  /* Brown background color */
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;  /* Smooth background color transition */
+}
+
+button:hover {
+  background-color: #5a3e1f;  /* Darker brown on hover */
+}
+
+button:active {
+  background-color: #4b2d14;  /* Even darker brown when clicked */
+}

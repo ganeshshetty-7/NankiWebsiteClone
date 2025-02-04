@@ -1,0 +1,25 @@
+.return-exchange-container {
+    max-width: 800px;
+    margin: 8px auto; /* Center the container horizontally */
+    padding: 80px 20px; /* Adjust padding for top and sides */
+}
+
+h2 {
+    text-align: center;
+    color: #000000;
+}
+
+h3 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.return-exchange-container p,
+.return-exchange-container ul {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.return-exchange-container ul {
+    padding-left: 20px; /* Add padding for list items */
+}

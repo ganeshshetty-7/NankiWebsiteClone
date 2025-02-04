@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    
+}
+
+.cart-page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px;
+}
+
+.cart-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Cart Content Layout */
+.cart-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Left Side - Cart Items */
+.cart-items-container {
+    flex: 2;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.cart-item-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.cart-item-controls select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+
+
+/* Right Side - Order Summary */
+.order-summary {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.coupon-text {
+    font-size: 14px;
+    color: #555;
+}
+
+.order-pricing {
+    margin-top: 10px;
+}
+
+.order-pricing p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.free-delivery {
+    color: green;
+    font-weight: bold;
+}
+
+.grand-total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.delivery-time {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #555;
+}
+
+.continue-button {
+    background-color: #8B4513;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.continue-button:hover {
+    background-color: #6A3310;
+}
+
+/* Payment Options */
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.payment-icons img {
+    width: 50px;
+    height: auto;
+}
+.coupon-input {
+    margin: 10px 0;
+    padding: 8px;
+    width: calc(100% - 16px);
+  }
+  
+  .apply-coupon-button {
+    background-color: #5e2c10;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+/* Style for the Payment Method Section */
+.payment-method {
+    display: flex;
+    flex-direction: column; /* Stack radio buttons vertically */
+    gap: 12px; /* Space between radio button options */
+    padding: 10px; /* Optional padding around the payment method section */
+}
+
+/* Style for each radio button input */
+.payment-method input[type="radio"] {
+    appearance: auto; /* Use the default radio button appearance */
+    -webkit-appearance: auto; /* For Safari */
+    -moz-appearance: auto; /* For Firefox */
+    margin: 0; /* Ensure no extra margin */
+    cursor: pointer; /* Pointer cursor on hover */
+    vertical-align: middle; /* Align radio buttons vertically in the middle */
+    /* Width and height are handled by the browser, no need to define them explicitly */
+}
+
+/* Label Styling for Text */
+.payment-method label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333; /* Dark color for text */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-weight: 500; /* Slightly bold text */
+    margin-left: 8px; /* Space between radio button and label text */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+    display: inline-flex; /* Ensure proper horizontal alignment */
+    align-items: center; /* Align text with radio button */
+}
+
+/* Focus effect to indicate focus state */
+.payment-method input[type="radio"]:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: none; /* No border or box shadow on focus */
+}
+
+/* Hover effect for label text */
+.payment-method label:hover {
+    color: #6A3310; /* Change text color on hover */
+}
+
+/* Active (clicked) radio button effect */
+.payment-method input[type="radio"]:active {
+    transform: scale(1.05); /* Slightly enlarge radio button when clicked */
+}

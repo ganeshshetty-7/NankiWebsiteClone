@@ -1,0 +1,47 @@
+ 
+  .top-categories {
+    text-align: center;
+    margin: 40px 20px; /* Increased margin from 20px to 40px on the top */
+    padding: 20px; /* Added padding for extra space inside the container */
+}
+
+.top-categories h2 {
+    color: black;
+}
+
+.categories-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.category-card {
+    width: 300px;
+    overflow: hidden;
+}
+
+.category-card img {
+    width: 250px;
+    height: 250px;
+}
+
+.category-info {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-info p {
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.category-info a {
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+}

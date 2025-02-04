@@ -1,0 +1,736 @@
+/* General Styles */
+* {
+    box-sizing: border-box; /* Ensure padding and border are included in width calculations */
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #ffffff;
+    padding: 10px 10px 30px; /* Added padding for spacing */
+    position: fixed; /* Make the navbar fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it is above other content */
+    border-bottom: 3px solid gold; /* Add golden bottom border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .top-banner {
+    text-align: center;
+    background-color: #0b0a0a; /* Dark background for banner */
+    padding: 10px 0;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #ffffff; /* White text */
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between items */
+    margin: 0 190px; /* Increased left and right margin */
+  }
+  
+  .logo img {
+    height: 50px; /* Adjust logo size */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+  }
+  
+  .nav-menu {
+    flex-grow: 0.2; /* Allow it to grow proportionally */
+    text-align: center;
+  }
+  
+  .nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-menu li {
+    margin: 0 20px; /* Space between nav items */
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .nav-menu a {
+    color: grey; /* Default link color */
+    text-decoration: none; /* Ensure no underline on links */
+    font-size: 16px; /* Font size */
+    font-weight: 600; /* Bold text */
+  }
+  
+  .nav-menu a:hover {
+    color: #ff5e00; /* Highlight color on hover */
+  }
+  
+  .nav-menu li.active::after,
+  .nav-menu li:hover::after {
+    transform: scaleX(1); /* Show underline for active and on hover */
+  }
+  
+  .nav-menu li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px; /* Adjust distance of underline */
+    height: 3px; /* Underline thickness */
+    background-color: #ff5e00; /* Underline color */
+    transform: scaleX(0); /* Initially hidden */
+  }
+  
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icons */
+    flex-shrink: 0; /* Prevent icons from shrinking */
+  }
+  
+  .icon {
+    font-size: 30px; /* Adjust icon size */
+    cursor: pointer; /* Change cursor to pointer */
+    color: #333; /* Default icon color */
+  }
+  
+  .main {
+    margin-top: 100px; /* Adjust based on navbar height */
+  }
+  
+  /* Popups Section */
+  .popups {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+  }
+  
+  .offers-popup,
+  .whatsapp-popup {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eae3e3;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .offers-popup:hover,
+  .whatsapp-popup:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px); /* Lift effect */
+  }
+  
+  .whatsapp-popup img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Circular image */
+  }
+  
+  /* Vertical Sidebar for Offers */
+  .offers-popup-vertical {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #000000d1; /* Black background */
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    writing-mode: vertical-rl;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #ffffff; /* White text */
+    transition: all 0.3s ease;
+  }
+  
+  .offers-popup-vertical:hover {
+    background-color: #5f1f06; /* Highlight on hover */
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.1); /* Slight enlargement */
+  }
+  
+  .offers-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 5px 0;
+  }
+  
+  /* Coupon Sidebar */
+  .coupon-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    max-width: 400px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .coupon-sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .coupon-sidebar-header {
+    background-color: #040404;
+    color: #ffffff;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .coupon-sidebar-header > h3 {
+    color: white;
+    margin: 30px 0 0 0; /* Remove default margin */
+    
+    flex-grow: 3; /* Allow the heading to take available space */
+  }
+  
+  .coupon-sidebar-header .close-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffffff;
+    margin-left: 150px;
+  }
+  
+  .coupon-sidebar-content {
+    padding: 20px;
+  }
+  
+  .coupon {
+    background-color: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .coupon-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000000;
+  }
+  
+  .copy-code {
+    color: #000000;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: black; /* Change background to black */
+    color: white; /* Change text color to white for contrast */
+  }
+  
+  .copy-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #131211; /* Background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow */
+    z-index: 1000; /* Ensure it's above other elements */
+    transition: opacity 0.3s ease; /* Transition effect */
+  }
+  
+  .details-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6e6e6e; /* Arrow color */
+    font-size: 13px;
+    margin-top: 10px; /* Space above the toggle button */
+    display: flex; /* Center the text and icon */
+    align-items: center;
+  }
+  
+  /* Remove hover effect */
+  .details-toggle:hover {
+    color: #6e6e6e; /* Ensure it stays the same color on hover */
+    transform: none; /* Prevent any transformation on hover */
+  }
+  
+  .details-content {
+    margin-top: 10px; /* Space above details */
+    color: #333; /* Text color */
+    padding-left: 20px; /* Indent details */
+  }
+  
+  /* Footer Section */
+  .footer {
+    background-color: #f8f8f8; /* Light background for footer */
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer h3 {
+    margin-bottom: 15px;
+    color: #333; /* Dark text for header */
+  }
+  
+  .reviews {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center align the reviews */
+    gap: 20px; /* Space between reviews */
+  }
+  
+  .review {
+    background-color: #ffffff; /* White background for each review */
+    padding: 25px;
+    width: 300px; /* Set a fixed width for better alignment */
+  }
+  
+  .review p {
+    color: rgb(182, 182, 182);
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif; /* Set font for reviews */
+  }
+  
+  .review h4 {
+    color: rgb(0, 0, 0);
+    font-size: 16px; /* Font size for review author */
+    margin-top: 10px; /* Space above author name */
+  }
+  
+  /* Shirts Page */
+  .shirt-kurtis-page {
+    padding: 40px; /* Increased padding */
+  }
+  
+  .filters {
+    float: left;
+    width: 25%; /* Width for filters */
+    background: #f9f9f9;
+    padding: 20px; /* Increased padding */
+    border: 1px solid #e0e0e0;
+    margin-right: 30px; /* Margin for spacing */
+  }
+  
+  .filters h3 {
+    margin-bottom: 15px; /* Margin for spacing */
+    font-size: 20px; /* Increased font size */
+  }
+  
+  .filters h4 {
+    margin-top: 20px; /* Margin for spacing */
+    margin-bottom: 5px;
+    font-size: 18px; /* Increased font size */
+  }
+  
+  .filters ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .filters ul li {
+    margin-bottom: 15px; /* Margin for spacing */
+  }
+  
+  .shirts-grid {
+    float: right;
+    width: 70%; /* Width for shirt grid */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: flex-start;
+  }
+  
+  .shirt-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    width: calc(33.33% - 20px); /* Adjusted width to fit three cards per row */
+    max-width: 300px; /* Set a maximum width for larger screens */
+    height: 450px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px; /* Increased padding inside cards */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Space out content */
+  }
+  
+  .shirt-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .price {
+    font-size: 16px; /* Font size for price */
+    color: #333;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px; /* Font size for original price */
+    margin-left: 5px;
+  }
+  
+  .clear-filters {
+    padding: 10px 15px;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Margin for spacing */
+  }
+  
+  .clear-filters:hover {
+    background: #888484;
+    color: black;
+  }
+  
+  .discount {
+    font-size: 14px; /* Font size for discount */
+    color: green;
+    margin-left: 10px; /* Margin for spacing */
+  }
+  
+  .add-to-cart {
+    padding: 10px 15px; /* Padding for button */
+    background: #744708;
+    color: #fff;
+    border: none;
+    border-radius: 3px; /* Rounded corners for button */
+    cursor: pointer;
+    margin-top: auto; /* Push button to the bottom */
+  }
+  
+  .add-to-cart:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .add-to-cart:hover:not(:disabled) {
+    background: #d18d2d;
+  }
+  
+  /* Clearfix for floating elements */
+  .shirt-kurtis-page::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  /* Shirts Page */
+.shirt-kurtis-page {
+    padding: 40px; /* Increased padding */
+}
+
+.filters {
+    float: left;
+    width: 25%; /* Width for filters */
+    background: #f9f9f9;
+    padding: 20px; /* Increased padding */
+    border: 1px solid #e0e0e0;
+    margin-right: 30px; /* Margin for spacing */
+}
+
+.filters h3 {
+    margin-bottom: 15px; /* Margin for spacing */
+    font-size: 20px; /* Increased font size */
+}
+
+.filters h4 {
+    margin-top: 20px; /* Margin for spacing */
+    margin-bottom: 5px;
+    font-size: 18px; /* Increased font size */
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filters ul li {
+    margin-bottom: 15px; /* Margin for spacing */
+}
+
+.shirts-grid {
+    float: right;
+    width: 70%; /* Width for shirt grid */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: flex-start;
+}
+
+.shirt-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    width: calc(33.33% - 20px); /* Adjusted width to fit three cards per row */
+    max-width: 300px; /* Set a maximum width for larger screens */
+    height: 450px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px; /* Increased padding inside cards */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Space out content */
+}
+
+.shirt-image {
+    max-width: 90%; /* Decrease max width for smaller images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Keep rounded corners */
+    margin: 0 auto; /* Center the image in the card */
+}
+
+.price {
+    font-size: 16px; /* Font size for price */
+    color: #333;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px; /* Font size for original price */
+    margin-left: 5px;
+}
+
+.clear-filters {
+    padding: 10px 15px;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Margin for spacing */
+}
+
+.clear-filters:hover {
+    background: #888484;
+    color: black;
+}
+
+.discount {
+    font-size: 14px; /* Font size for discount */
+    color: green;
+    margin-left: 10px; /* Margin for spacing */
+}
+
+.add-to-cart {
+    padding: 10px 15px; /* Padding for button */
+    background: #893b07 !important;
+    color: #fff;
+    border: none;
+    border-radius: 3px; /* Rounded corners for button */
+    cursor: pointer;
+    margin-top: auto; /* Push button to the bottom */
+}
+
+
+.add-to-cart:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.add-to-cart:hover:not(:disabled) {
+  background: #d18d2d !important; /* Add !important if necessary */
+}
+
+
+/* Clearfix for floating elements */
+.shirt-kurtis-page::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+/* Shirts Page */
+.shirt-kurtis-page {
+    padding: 40px; /* Increased padding */
+}
+
+.filters {
+    float: left;
+    width: 25%; /* Width for filters */
+    background: #f9f9f9;
+    padding: 20px; /* Increased padding */
+    border: 1px solid #e0e0e0;
+    margin-right: 30px; /* Margin for spacing */
+}
+
+.filters h3 {
+    margin-bottom: 15px; /* Margin for spacing */
+    font-size: 20px; /* Increased font size */
+}
+
+.filters h4 {
+    margin-top: 20px; /* Margin for spacing */
+    margin-bottom: 5px;
+    font-size: 18px; /* Increased font size */
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filters ul li {
+    margin-bottom: 15px; /* Margin for spacing */
+}
+
+.shirts-grid {
+    float: right;
+    width: 70%; /* Width for shirt grid */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: flex-start;
+}
+
+.shirt-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    width: calc(33.33% - 20px); /* Adjusted width to fit three cards per row */
+    max-width: 300px; /* Set a maximum width for larger screens */
+    height: 450px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px; /* Increased padding inside cards */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Space out content */
+}
+
+.shirt-image {
+    width: 200px; /* Set width to 200 pixels */
+    height: 200px; /* Set height to 200 pixels */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+    border-radius: 5px; /* Keep rounded corners */
+    margin: 0 auto; /* Center the image in the card */
+}
+
+.price {
+    font-size: 16px; /* Font size for price */
+    color: #333;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 14px; /* Font size for original price */
+    margin-left: 5px;
+}
+
+.clear-filters {
+    padding: 10px 15px;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Margin for spacing */
+}
+
+.clear-filters:hover {
+    background: #888484;
+    color: black;
+}
+
+.discount {
+    font-size: 14px; /* Font size for discount */
+    color: green;
+    margin-left: 10px; /* Margin for spacing */
+}
+
+.add-to-cart {
+    padding: 10px 15px; /* Padding for button */
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px; /* Rounded corners for button */
+    cursor: pointer;
+    margin-top: auto; /* Push button to the bottom */
+}
+
+.add-to-cart:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.add-to-cart:hover:not(:disabled) {
+    background: #0056b3;
+}
+
+/* Clearfix for floating elements */
+.shirt-kurtis-page::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.shirt-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    width: calc(33.33% - 20px); /* Adjusted width to fit three cards per row */
+    max-width: 300px; /* Set a maximum width for larger screens */
+    height: 450px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px; /* Increased padding inside cards */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Space out content */
+}
+
+.shirt-image {
+    width: 180px; /* Decrease width to 180 pixels */
+    height: 250px; /* Increase height to 250 pixels */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+    border-radius: 5px; /* Keep rounded corners */
+    margin: 0 auto; /* Center the image in the card */
+}
+
+.added-to-cart-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px 15px;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it appears above other elements */
+    transition: opacity 0.5s ease;
+  }
+    
