@@ -45,3 +45,29 @@
     text-decoration: none;
     color: black;
 }
+.category-info a {
+    font-size: 40px;
+    text-decoration: none; /* Remove default underline */
+    color: black;
+}
+
+.category-info a:hover {
+    color: #71320d; /* Highlight color on hover */
+    text-decoration: none; /* Ensure no default underline on hover */
+}
+
+.category-info a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust distance of underline */
+    left: 0;
+    right: 0;
+    height: 3px; /* Underline thickness */
+    background-color: #692d0b; /* Underline color */
+    transform: scaleX(0); /* Initially hidden */
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.category-info a:hover::after {
+    transform: scaleX(1); /* Show the underline on hover */
+}

@@ -23,7 +23,7 @@ const Hearts_hakoba = ({ addToCart }) => {
     {
       id: 2,
       images: [
-        "src/assets/hearts_hakobaimg/img5.webp",
+       
         "src/assets/hearts_hakobaimg/img6.webp",
         "src/assets/hearts_hakobaimg/img7.webp",
         "src/assets/hearts_hakobaimg/img8.webp",
@@ -61,10 +61,10 @@ const Hearts_hakoba = ({ addToCart }) => {
     {
       id: 5,
       images: [
-        "src/assets/hearts_hakobaimg/img17.webp",
-        "src/assets/hearts_hakobaimg/img18.webp",
-        "src/assets/hearts_hakobaimg/img19.webp",
-        "src/assets/hearts_hakobaimg/img20.webp",
+        "src/assets/hearts_hakobaimg/heroine.jpg",
+        // "src/assets/hearts_hakobaimg/img18.webp",
+        // "src/assets/hearts_hakobaimg/img19.webp",
+        // "src/assets/hearts_hakobaimg/img20.webp",
       ],
       name: "Traditional Silk Kurti",
       currentPrice: 2499,

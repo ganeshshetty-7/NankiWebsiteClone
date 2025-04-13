@@ -11,93 +11,59 @@ const Hearts_hakobaall = ({ addToCart }) => {
   const shirtsData = [
     {
       id: 1,
-      images: ["src/assets/shirts_kurtisimg/img1.webp"],
-      name: "Indigo Handblock Shirt Kurti",
+      images: ["src/assets/hearts_hakobaimg/img1.webp"],
+      name: "All Hearts Handblock Shirt",
       currentPrice: 1799,
       originalPrice: 1999,
       discount: "10%",
-      sizes: [12, 14] // Example sizes
+      sizes: [12, 14] 
     },
     {
       id: 2,
-      images: ["src/assets/shirts_kurtisimg/img5.webp"],
-      name: "Black Square Handblock Shirt Kurti",
+      images: ["src/assets/hearts_hakobaimg/img6.webp"],
+      name: "Just Ace It Handblock Shirt",
       currentPrice: 1799,
       originalPrice: 1999,
       discount: "10%",
+      sizes: [12,16] 
     },
     {
       id: 3,
-      images: ["src/assets/shirts_kurtisimg/img9.webp"],
-      name: "Mango Leaf Bagru Handblock Kurti",
+      images: ["src/assets/hearts_hakobaimg/img9.webp"],
+      name: "Hakoba Cream Handblock Shirt",
       currentPrice: 1699,
       originalPrice: 1999,
       discount: "15%",
+      sizes: [12,14,18] 
     },
     {
       id: 4,
-      images: ["src/assets/shirts_kurtisimg/img13.webp"],
-      name: "Laal Ajrakh Natural Dye Shirt Kurti",
+      images: ["src/assets/hearts_hakobaimg/img13.webp"],
+      name: "Green Hakoba Shirt",
       currentPrice: 2300,
       originalPrice: 2510,
       discount: "8%",
+      sizes: [12,14,18] 
     },
     {
       id: 5,
-      images: ["src/assets/shirts_kurtisimg/img17.webp"],
-      name: "Green Ajrakh Handblock Kurti",
+      images: ["src/assets/hearts_hakobaimg/img17.webp"],
+      name: "Rani Hakoba Shirt",
       currentPrice: 2100,
       originalPrice: 2300,
       discount: "9%",
+      sizes: [12,16] 
     },
     {
       id: 6,
-      images: ["src/assets/shirts_kurtisimg/img21.webp"],
-      name: "Yellow Ajrakh Handblock Kurti",
+      images: ["src/assets/shirts_kurtisimg/img20.webp"],
+      name: "Yellow Ajrakh Handblock Shirt",
       currentPrice: 2150,
       originalPrice: 2350,
       discount: "8%",
+      sizes: [12,18] 
     },
-    {
-      id: 7,
-      images: ["src/assets/shirts_kurtisimg/img25.webp"],
-      name: "Pink Ajrakh Handblock Kurti",
-      currentPrice: 2200,
-      originalPrice: 2400,
-      discount: "8%",
-    },
-    {
-      id: 8,
-      images: ["src/assets/shirts_kurtisimg/img29.webp"],
-      name: "Blue Ajrakh Handblock Kurti",
-      currentPrice: 2000,
-      originalPrice: 2200,
-      discount: "10%",
-    },
-    {
-      id: 9,
-      images: ["src/assets/shirts_kurtisimg/img21.webp"],
-      name: "Ajrakh Handblock Kurti",
-      currentPrice: 2150,
-      originalPrice: 2350,
-      discount: "8%",
-    },
-    {
-      id: 10,
-      images: ["src/assets/shirts_kurtisimg/img25.webp"],
-      name: "Pink Ajrakh Handblock Kurti",
-      currentPrice: 2200,
-      originalPrice: 2400,
-      discount: "8%",
-    },
-    {
-      id: 11,
-      images: ["src/assets/shirts_kurtisimg/img29.webp"],
-      name: "Blue Ajrakh Handblock Kurti",
-      currentPrice: 2000,
-      originalPrice: 2200,
-      discount: "10%",
-    },
+  
   ];
 
   const priceRanges = [

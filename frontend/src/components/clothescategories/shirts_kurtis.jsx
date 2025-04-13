@@ -1,13 +1,12 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import OtpPopup from "/src/OtpPopup.jsx"; // Import the OTP Popup component
+import OtpPopup from "/src/OtpPopup.jsx"; // Import OTP Popup
 import "./shirts_kurtis.css";
 
 const ShirtsKurtis = ({ addToCart }) => {
   const [addedToCartMessage, setAddedToCartMessage] = useState('');
   const [isOtpPopupVisible, setOtpPopupVisible] = useState(false); 
-  
+
   const kurtiData = [
     {
       id: 1,
@@ -144,7 +143,7 @@ const ShirtsKurtis = ({ addToCart }) => {
               key={kurti.id} 
               {...kurti} 
               addToCart={handleAddToCart} 
-              onWishlistClick={handleWishlistClick} // Pass wishlist click handler to KurtiCard
+              onWishlistClick={handleWishlistClick} 
             />
           ))}
         </div>
@@ -157,24 +156,36 @@ const ShirtsKurtis = ({ addToCart }) => {
     </>
   );
 };
+
 const KurtiCard = ({ id, images, name, currentPrice, originalPrice, discount, addToCart, onWishlistClick }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [hoverActive, setHoverActive] = useState(false);
 
-  // Remove the wishlist state to prevent icon from toggling
+  useEffect(() => {
+    let interval;
+    if (hoverActive) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 1000); // Slide every 1 second
+    } else {
+      clearInterval(interval); // Clear the interval when hover is inactive
+    }
+    return () => clearInterval(interval); // Cleanup the interval on component unmount
+  }, [hoverActive, images.length]);
+
   const handleWishlistClick = (e) => {
     e.stopPropagation();
-    onWishlistClick(); // Trigger OTP Popup when wishlist icon is clicked
+    onWishlistClick(); // Trigger OTP popup when wishlist icon is clicked
   };
 
   return (
     <div className="kurti-card">
       <div
         className="image-wrapper"
-        onMouseEnter={() => setHoverActive(true)}
+        onMouseEnter={() => setHoverActive(true)} // Start sliding when hover starts
         onMouseLeave={() => {
-          setHoverActive(false);
-          setCurrentImageIndex(0);
+          setHoverActive(false); // Stop sliding when hover ends
+          setCurrentImageIndex(0); // Reset to first image
         }}
       >
         <img
@@ -183,8 +194,8 @@ const KurtiCard = ({ id, images, name, currentPrice, originalPrice, discount, ad
           className="kurti-image"
         />
         <div
-          className="wishlist-icon" // Don't add dynamic class for active state
-          onClick={handleWishlistClick} // Trigger OTP popup on click
+          className="wishlist-icon"
+          onClick={handleWishlistClick} // Show OTP popup on wishlist icon click
         >
           <span>&#10084;</span>
         </div>
@@ -205,6 +216,5 @@ const KurtiCard = ({ id, images, name, currentPrice, originalPrice, discount, ad
     </div>
   );
 };
-
 
 export default ShirtsKurtis;

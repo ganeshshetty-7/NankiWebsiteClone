@@ -11,27 +11,29 @@ const ShirtKurtisAll = ({ addToCart }) => {
     {
       id: 1,
       images: ["src/assets/shirts_kurtisimg/img1.webp"],
-      name: "Indigo Handblock Shirt Kurti",
+      name: "Mud Print Handblock Shirt Kurti",
       currentPrice: 1799,
       originalPrice: 1999,
       discount: "10%",
-      sizes: [12, 14] // Example sizes
+      sizes: [12, 14] 
     },
     {
       id: 2,
       images: ["src/assets/shirts_kurtisimg/img5.webp"],
-      name: "Black Square Handblock Shirt Kurti",
-      currentPrice: 1799,
-      originalPrice: 1999,
+      name: "Indigo Handblock Shirt kurti",
+      currentPrice: 1999,
+      originalPrice: 2199,
       discount: "10%",
+      sizes: [16, 18] 
     },
     {
       id: 3,
       images: ["src/assets/shirts_kurtisimg/img9.webp"],
-      name: "Mango Leaf Bagru Handblock Kurti",
+      name: "Mango Leaf Bagru Handblock Shirt Kurti",
       currentPrice: 1699,
       originalPrice: 1999,
       discount: "15%",
+      sizes: [12] 
     },
     {
       id: 4,
@@ -40,22 +42,25 @@ const ShirtKurtisAll = ({ addToCart }) => {
       currentPrice: 2300,
       originalPrice: 2510,
       discount: "8%",
+      sizes: [14] 
     },
     {
       id: 5,
       images: ["src/assets/shirts_kurtisimg/img17.webp"],
-      name: "Green Ajrakh Handblock Kurti",
+      name: "Green Ajrakh Handblock Shirt Kurti",
       currentPrice: 2100,
       originalPrice: 2300,
       discount: "9%",
+      sizes: [16] 
     },
     {
       id: 6,
       images: ["src/assets/shirts_kurtisimg/img21.webp"],
-      name: "Yellow Ajrakh Handblock Kurti",
+      name: "Yellow Ajrakh Handblock Shirt Kurti",
       currentPrice: 2150,
       originalPrice: 2350,
       discount: "8%",
+      sizes: [18] 
     },
     {
       id: 7,
@@ -64,6 +69,7 @@ const ShirtKurtisAll = ({ addToCart }) => {
       currentPrice: 2200,
       originalPrice: 2400,
       discount: "8%",
+      sizes: [12, 14] 
     },
     {
       id: 8,
@@ -72,30 +78,34 @@ const ShirtKurtisAll = ({ addToCart }) => {
       currentPrice: 2000,
       originalPrice: 2200,
       discount: "10%",
+      sizes: [12, 16] 
     },
     {
       id: 9,
       images: ["src/assets/shirts_kurtisimg/img21.webp"],
-      name: "Ajrakh Handblock Kurti",
+      name: "Fabwork Ajrakh Natural Dye Shirt Kurti",
       currentPrice: 2150,
       originalPrice: 2350,
       discount: "8%",
+      sizes: [12, 18] 
     },
     {
       id: 10,
       images: ["src/assets/shirts_kurtisimg/img25.webp"],
-      name: "Pink Ajrakh Handblock Kurti",
+      name: "Karigiri Natural Dye Shirt Kurti",
       currentPrice: 2200,
       originalPrice: 2400,
       discount: "8%",
+      sizes: [12] 
     },
     {
       id: 11,
       images: ["src/assets/shirts_kurtisimg/img29.webp"],
-      name: "Blue Ajrakh Handblock Kurti",
+      name: "Brown Floral Cotton Shirt Kurti",
       currentPrice: 2000,
       originalPrice: 2200,
       discount: "10%",
+      sizes: [18] 
     },
   ];
 
@@ -108,7 +118,11 @@ const ShirtKurtisAll = ({ addToCart }) => {
   ];
 
   const handleSizeChange = (size) => {
-    setSizeFilters((prev) => ({ ...prev, [size]: !prev[size] }));
+    setSizeFilters((prev) => {
+      const updatedSizeFilters = { ...prev, [size]: !prev[size] };
+      console.log('Updated size filters:', updatedSizeFilters); // Debug the state change
+      return updatedSizeFilters;
+    });
   };
 
   const handlePriceChange = (priceRange) => {
@@ -137,14 +151,15 @@ const ShirtKurtisAll = ({ addToCart }) => {
 
   const filteredShirts = shirtsData.filter((shirt) => {
     const sizeIncluded =
-      Object.keys(sizeFilters).length === 0 || shirt.sizes.some(size => sizeFilters[size]);
+      Object.keys(sizeFilters).length === 0 || shirt.sizes.some((size) => sizeFilters[size]);
 
     const priceIncluded =
       Object.keys(priceFilters).length === 0 ||
-      priceRanges.some((priceRange) =>
-        priceFilters[priceRange.label] &&
-        shirt.currentPrice >= priceRange.range[0] &&
-        shirt.currentPrice <= priceRange.range[1]
+      priceRanges.some(
+        (priceRange) =>
+          priceFilters[priceRange.label] &&
+          shirt.currentPrice >= priceRange.range[0] &&
+          shirt.currentPrice <= priceRange.range[1]
       );
 
     return sizeIncluded && priceIncluded;
@@ -207,7 +222,7 @@ const ShirtKurtisAll = ({ addToCart }) => {
       <div className="shirts-grid">
         {sortedShirts.map((shirt) => (
           <div key={shirt.id} className="shirt-card">
-            <img src={shirt.images[0]} alt={shirt.name} className="shirt-image" />
+            <img src={shirt.images} alt={shirt.name} className="shirt-image" />
             <h3>{shirt.name}</h3>
             <p className="price">
               ₹{shirt.currentPrice}{' '}

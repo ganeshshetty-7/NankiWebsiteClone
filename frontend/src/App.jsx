@@ -135,7 +135,7 @@ function App() {
             <a href="/search">
               <IoSearchOutline className="icon" title="Search" />
             </a>
-            <a href="/account">
+            <a href="/Signup-form">
               <GoPerson className="icon" title="Account" />
             </a>
             <a href="#" onClick={() => navigate("/cart")}>
@@ -193,7 +193,7 @@ function App() {
             <u> <h4>Available Coupons</h4></u> 
             {[{ code: 'DISCOUNT10', description: 'Use coupon code DISCOUNT10 for 10% off your purchase!' },
               { code: 'SUMMER15', description: 'Use coupon code SUMMER15 for 15% off your summer items!' },
-              { code: 'FREESHIP', description: 'Use coupon code FREESHIP for free shipping on orders over $50!' }].map((offer, index) => (
+              { code: 'FREESHIP', description: 'Use coupon code FREESHIP for free shipping' }].map((offer, index) => (
                 <div key={index} style={{ marginBottom: '20px',border:'1px solid black',padding:'10px' }}>
                   <p>{offer.description}</p>
                   <strong>{offer.code}</strong>

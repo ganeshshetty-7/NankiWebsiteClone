@@ -1,14 +1,13 @@
 const express = require('express');
 const twilio = require('twilio');
 const cors = require('cors');
-require('dotenv').config(); // Load environment variables
+require('dotenv').config(); 
 
 const app = express();
 
 // Enable CORS for all routes
 app.use(cors()); 
 
-// Use express JSON parser for incoming request
 app.use(express.json()); 
 
 // Twilio credentials (stored in environment variables for security)
@@ -18,7 +17,7 @@ const client = new twilio(accountSid, authToken);
 
 // Function to send SMS
 const sendSms = (phoneNumber, message) => {
-  // Validate phone number format
+ 
   const formattedPhoneNumber = formatPhoneNumber(phoneNumber);
   if (!formattedPhoneNumber) {
     throw new Error('Invalid phone number format.');
@@ -31,7 +30,7 @@ const sendSms = (phoneNumber, message) => {
   });
 };
 
-// Helper function to format phone number to E.164 format
+
 const formatPhoneNumber = (phoneNumber) => {
   // Ensure phone number starts with '+91' for Indian numbers
   if (!phoneNumber.startsWith('+91')) {
@@ -40,7 +39,7 @@ const formatPhoneNumber = (phoneNumber) => {
   return phoneNumber;
 };
 
-// Endpoint to send SMS
+
 app.post('/send-sms', async (req, res) => {
   const { phoneNumber, message } = req.body;
 

@@ -1,6 +1,6 @@
-/* General Styles */
+
 * {
-  box-sizing: border-box; /* Ensure padding and border are included in width calculations */
+  box-sizing: border-box; 
 }
 
 body {
@@ -260,33 +260,8 @@ body {
   z-index: 1000; /* Ensure it's above other elements */
   transition: opacity 0.3s ease; /* Transition effect */
 }
-.details-toggle {
-  background: none; /* No background */
-  border: none; /* No border */
-  cursor: pointer; /* Pointer cursor */
-  color: #6e6e6e; /* Arrow color */
-  font-size: 13px; /* Font size */
-  margin-top: 10px; /* Space above the toggle button */
-  display: flex; /* Center the text and icon */
-  align-items: center; /* Center vertically */
-  padding: 0; /* Remove any padding */
-  transition: none; /* Disable transitions for hover */
-}
-
-/* Ensure no hover effect */
-.details-toggle:hover {
-  color: #6e6e6e; /* Maintain the same color on hover */
-  transform: none; /* No transformations on hover */
-}
 
 
-
-
-.details-content {
-  margin-top: 10px; /* Space above details */
-  color: #333; /* Text color */
-  padding-left: 20px; /* Indent details */
-}
 
 /* Footer Section */
 .footer {
@@ -611,4 +586,14 @@ body {
 {
    background: none;
   color: black;
+}
+
+.nav-menu a:hover {
+  color: #71320d; /* Highlight color on hover */
+  text-decoration: none; /* Make sure no default underline */
+}
+
+.nav-menu li:hover::after {
+  transform: scaleX(1); /* Ensure underline appears correctly */
+  /* You can also customize how the underline appears during hover */
 }

@@ -161,6 +161,16 @@ const KurtiCard = ({ id, images, name, currentPrice, originalPrice, discount, ad
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [hoverActive, setHoverActive] = useState(false);
 
+  useEffect(() => {
+    let interval;
+    if (hoverActive) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 1000); // Change image every second while hovering
+    }
+    return () => clearInterval(interval);
+  }, [hoverActive, images.length]);
+
   const handleWishlistClick = (e) => {
     e.stopPropagation();
     onWishlistClick(); // Trigger OTP popup on wishlist icon click
@@ -173,7 +183,7 @@ const KurtiCard = ({ id, images, name, currentPrice, originalPrice, discount, ad
         onMouseEnter={() => setHoverActive(true)}
         onMouseLeave={() => {
           setHoverActive(false);
-          setCurrentImageIndex(0);
+          setCurrentImageIndex(0); // Reset the image index when mouse leaves
         }}
       >
         <img

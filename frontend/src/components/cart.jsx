@@ -76,7 +76,10 @@ const Cart = ({ cartItems, removeFromCart, updateCartQuantity }) => {
                   <div className="cart-item-controls">
                     <label>
                       Size: <select>
-                        <option>10</option>
+                        <option>12</option>
+                        <option>14</option>
+                        <option>16</option>
+                        <option>18</option>
                       </select>
                     </label>
                     <label>
